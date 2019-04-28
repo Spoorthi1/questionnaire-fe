@@ -1,0 +1,50 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.flex-container {
+		background-color: #e9edf2;
+		display: flex;
+		margin: 20px;
+		flex-direction: column;
+		width: 80%;
+		padding: 20px;
+		.flex-row {
+			display: flex;
+			flex-direction: row;
+			.buttons {
+				display: flex;
+				flex-direction: column;
+				margin-top: 30px;
+				font-weight: bold;
+				.votes {
+					color: #ea7f25;
+					text-align: center;
+				}
+				.button {
+					background-color: #fcc79a;
+				}
+			}
+			.question-text {
+				padding: 20px;
+				font-weight: bold;
+				cursor: pointer;
+			}
+		}
+		.example-card {
+			margin: 4px;
+			background-color: white;
+			.example-header-image {
+				background-size: cover;
+			}
+		}
+		.new-answer {
+			background-color: white;
+			margin: 5px;
+			padding-left: 10px;
+			.example-full-width {
+				width: 100%;
+			}
+		}
+	}
+}

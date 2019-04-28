@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="flex-container" *ngFor="let question of qList">
+    <div class="flex-row">
+      <div class="buttons">
+        <span class="votes">{{question.upvotes}}</span>
+        <button mat-button class="button" (click)="updateUpvoteDownvote(question.Id,0)">+</button>
+        <button mat-raised-button class="button" (click)="updateUpvoteDownvote(question.Id,1)">-</button>
+        <span class="votes">{{question.downvotes}}</span>
+      </div>
+
+
+      <div class="question-text" [routerLink]="['/question-details', question.Id]">
+        <span>{{question.Id}}:&nbsp;</span>
+        <span [innerHTML]="question.Text"></span>
+      </div>
+    </div>
+
+    <div *ngFor="let answer of aList">
+      <div *ngIf="answer['Question-Id'] === question.Id">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <img *ngIf="answer.created_by && answer.created_by.Avatar" mat-card-avatar class="example-header-image"
+              [src]=answer.created_by.Avatar />
+            <mat-card-title [innerHTML]="answer.Answer"></mat-card-title>
+            <mat-card-subtitle *ngIf="answer.created_by && !answer.created_by.Name">{{answer.created_by}}&nbsp;&nbsp;{{answer.created_at}}</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="answer.created_by && answer.created_by.Name">{{answer.created_by.Name}}&nbsp;&nbsp;{{answer.created_at}}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="new-answer">
+      <span>Enter Answer:</span>
+      <mat-form-field class="example-full-width">
+        <textarea matInput [formControl]="newAnswer"
+          (blur)="saveAnswer($event, question.Id)"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

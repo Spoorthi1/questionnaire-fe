@@ -1,0 +1,13 @@
+<div class="background">
+    <div *ngIf="(questionList$ | async) as questionList">
+        <div *ngIf="(answerList$ | async) as answerList">
+            <div class="list">
+                <app-question-answer-list [questionList]="questionList" [answerList]="answerList"
+                    (saveVote)="updateVote($event)" (newAnswerEntered)="saveAnswer($event)">
+                </app-question-answer-list>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="noData" class="no-data">No Data Found</div>
+</div>

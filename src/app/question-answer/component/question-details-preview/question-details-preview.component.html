@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <span>Question Details</span>
+  <div *ngIf="(question$ | async) as question">
+    <div class="list">
+      <div class="flex-container">
+        <div class="question-text">
+          <span>{{question.Id}}:&nbsp;</span>
+          <span [innerHTML]="question.Text"></span>
+        </div>
+        
+        <div class="flex-column">
+          <span class="votes">{{question.upvotes}} Upvotes</span>
+          <span class="votes">{{question.downvotes}} Downvotes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="noData" class="no-data">No Data Found</div>
+</div>
