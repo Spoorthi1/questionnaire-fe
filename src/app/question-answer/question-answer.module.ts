@@ -28,6 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ],
     exports: [
     ],
-    declarations: [QuestionAnswerComponent, QuestionAnswerListComponent, QuestionDetailsPreviewComponent]
+    declarations: [
+        // QuestionAnswerComponent, QuestionAnswerListComponent, QuestionDetailsPreviewComponent
+    ]
 })
 export class QuestionsRepoModule { }
